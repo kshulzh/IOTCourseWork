@@ -19,6 +19,7 @@ dependencies {
     implementation("org.apache.hadoop:hadoop-common:$hadoop")
     implementation("org.apache.hadoop:hadoop-mapreduce-client-core:$hadoop")
     implementation("org.apache.hadoop:hadoop-mapreduce-client-shuffle:$hadoop")
+    implementation(project(":common"))
 
     implementation("org.springframework.boot:spring-boot-starter-web:$springBoot") {
         exclude(group = "ch.qos.logback", module = "logback-classic")
