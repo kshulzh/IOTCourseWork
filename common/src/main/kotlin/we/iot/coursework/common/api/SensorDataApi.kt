@@ -11,6 +11,6 @@ interface SensorDataApi {
         end: LocalDateTime?,
         interval: String,
         uuids: Set<UUID>?,
-        sensorTypes: Set<SensorType>
+        sensorTypes: Set<SensorType>?
     ): AnalyzedSensorDataDto
 }
