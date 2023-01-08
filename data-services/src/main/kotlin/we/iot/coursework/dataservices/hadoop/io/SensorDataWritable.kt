@@ -18,6 +18,6 @@ class SensorDataWritable(
     }
 
     override fun compareTo(other: SensorDataWritable?): Int {
-        TODO("Not yet implemented")
+        return value.toString().compareTo(other.toString())
     }
 }

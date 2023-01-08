@@ -12,7 +12,7 @@ import we.iot.coursework.dataservices.mapper.SensorDataFromCSVString
 import java.time.LocalDate
 import java.time.Period
 
-class SensorDataMapper : Mapper<LongWritable, Text, Text, SensorDataWritable>() {
+class SensorDataMapper : Mapper<LongWritable, Text, Text, Text>() {
     lateinit var filter: SensorDataFilter
     lateinit var period: Period
     lateinit var periods:List<Pair<LocalDate,LocalDate>>
@@ -27,7 +27,7 @@ class SensorDataMapper : Mapper<LongWritable, Text, Text, SensorDataWritable>() 
             val value = `val` ?: return
             val sensorData = SensorDataFromCSVString.mapFrom(value.toString())
             if(filter.check(sensorData)) {
-                context?.write(Text(sensorData.sensorId.toString()),SensorDataWritable(sensorData))
+                context?.write(Text(sensorData.sensorId.toString()),Text(SensorDataFromCSVString.mapTo(sensorData)))
             }
         } catch (e:Exception) {
             e.printStackTrace()
