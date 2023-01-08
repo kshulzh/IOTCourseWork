@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.util.UUID
 
 object SensorDataFromCSVString : SensorDataFromString {
-    val SEPARATOR = "\t"
+    val SEPARATOR = ","
     override fun mapFrom(o: String): SensorDataImpl {
         val rawSensorData = o.split(SEPARATOR)
         return SensorDataImpl(

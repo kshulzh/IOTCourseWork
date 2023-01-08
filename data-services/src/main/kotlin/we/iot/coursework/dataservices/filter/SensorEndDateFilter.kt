@@ -15,6 +15,6 @@ class SensorEndDateFilter(
     val endDate: LocalDateTime
 ) : SensorDataFilter {
     override fun check(value: SensorData<*>): Boolean {
-        return !endDate.isAfter(value.time)
+        return !endDate.isBefore(value.time)
     }
 }
